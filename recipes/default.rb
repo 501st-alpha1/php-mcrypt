@@ -18,12 +18,12 @@
 
 case node[:platform]
 when "ubuntu","debian"
-	include_recipe "php"
-	
-	package "php-mcrypt" do
-	  package_name "php5-mcrypt"
-	  action :install
-	end
+  include_recipe "php"
+
+  package "php-mcrypt" do
+    package_name "php5-mcrypt"
+    action :install
+  end
 end
 
 template "#{node['php']['ext_conf_dir']}/mcrypt.ini" do
