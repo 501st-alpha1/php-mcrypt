@@ -24,6 +24,10 @@ when "ubuntu","debian"
     package_name "php5-mcrypt"
     action :install
   end
+
+  if node[:platform_version] == '14.04'
+    execute "sudo php5enmod mcrypt"
+  end
 end
 
 template "#{node['php']['ext_conf_dir']}/mcrypt.ini" do
